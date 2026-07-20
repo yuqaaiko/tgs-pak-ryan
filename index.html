@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesona Kepulauan Seribu</title>
+    <style>
+        /* Reset & Variabel Warna Modern */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #0077b6;
+            --secondary: #00b4d8;
+            --accent: #90e0ef;
+            --dark: #03045e;
+            --light: #f8f9fa;
+        }
+
+        body {
+            background-color: var(--light);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header Dinamis dengan Efek Gradient */
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 16px;
+            color: var(--accent);
+        }
+
+        /* Menu Filter Kategori */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 25px 0 10px 0;
+            flex-wrap: wrap;
+            padding: 0 15px;
+        }
+
+        .filter-btn {
+            background-color: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Kotak Pencarian */
+        .search-box {
+            text-align: center;
+            margin: 15px 0 25px 0;
+        }
+
+        .search-box input {
+            width: 85%;
+            max-width: 450px;
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 8px rgba(0, 119, 182, 0.2);
+        }
+
+        /* Kontainer Kartu Wisata */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 40px 20px;
+        }
+
+        /* Desain Kartu Dinamis */
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* Tombol Interaktif di Kartu */
+        .btn-detail {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .btn-detail:hover {
+            background-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--dark);
+            color: white;
+            font-size: 13px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Pesona Kepulauan Seribu</h1>
+        <p>Eksplorasi keindahan bahari dan surga tersembunyi di Jakarta</p>
+    </header>
+
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterKategori('all')">Semua</button>
+        <button class="filter-btn" onclick="filterKategori('edukasi')">Edukasi & Konservasi</button>
+        <button class="filter-btn" onclick="filterKategori('pantai')">Pantai & Santai</button>
+        <button class="filter-btn" onclick="filterKategori('ikonik')">Ikonik & Spot Foto</button>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Cari nama pulau atau aktivitas...">
+    </div>
+
+    <main class="container" id="wisataContainer">
+        
+        <div class="card" data-kategori="edukasi" data-name="pulau pramuka penangkaran penyu snorkeling">
+            <div class="card-body">
+                <h3>Pulau Pramuka</h3>
+                <p>Pusat administrasi kabupaten, terkenal dengan wisata edukasi penangkaran penyu dan spot snorkeling air jernih.</p>
+                <button class="btn-detail" onclick="klikDetail('Pulau Pramuka')">Lihat Detail & Rute</button>
+            </div>
+        </div>
+
+        <div class="card" data-kategori="ikonik" data-name="pulau tidung jembatan cinta sunset sepedaan">
+            <div class="card-body">
+                <h3>Pulau Tidung</h3>
+                <p>Ikonik dengan Jembatan Cinta yang legendaris, sangat seru buat sepedaan keliling pulau sambil menikmati sunset.</p>
+                <button class="btn-detail" onclick="klikDetail('Pulau Tidung')">Lihat Detail & Rute</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="pulau pari pasir perawan bersih santai" data-kategori="pantai">
+            <div class="card-body">
+                <h3>Pulau Pari</h3>
+                <p>Memiliki Pantai Pasir Perawan yang airnya tenang, jernih, dan bersih. Pas banget buat healing santai di pinggir pantai.</p>
+                <button class="btn-detail" onclick="klikDetail('Pulau Pari')">Lihat Detail & Rute</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="pulau bidadari sejarah benteng belanda" data-kategori="edukasi">
+            <div class="card-body">
+                <h3>Pulau Bidadari</h3>
+                <p>Pulau terdekat dari Jakarta yang menyimpan sejarah masa lalu berupa peninggalan benteng Belanda dan pohon centeng.</p>
+                <button class="btn-detail" onclick="klikDetail('Pulau Bidadari')">Lihat Detail & Rute</button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Project Web Pariwisata Kepulauan Seribu</p>
+    </footer>
+
+    <script>
+        // 1. Fungsi Klik Tombol Detail interaktif
+        function namaTempat(nama) {
+            alert("Kamu memilih " + nama + "! Halaman detail lengkapnya otw dibuat ya boss.");
+        }
+
+        // 2. Fungsi Filter Kategori Tombol
+        function filterKategori(kategori) {
+            const cards = document.querySelectorAll('.card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Ubah tombol aktif
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                const k = card.getAttribute('data-kategori');
+                if (kategori === 'all' || k === kategori) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        // 3. Fungsi Pencarian Live Dinamis
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.card');
+
+        searchInput.addEventListener('keyup', function(e) {
+            const keyword = e.target.value.toLowerCase();
+
+            cards.forEach(card => {
+                const textData = card.getAttribute('data-name');
+                if (textData.indexOf(keyword) > -1) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+
+        function klikDetail(nama) {
+            alert("Fitur info rute ke " + nama + " masih dalam tahap pengembangan ya! Sabar dikit wkwk.");
+        }
+    </script>
+</body>
+</html>
