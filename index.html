@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesona Kepulauan Seribu</title>
+    <title>Pesona Kepulauan Seribu - Direktori & Panduan Wisata</title>
     <style>
-        /* Reset & Variabel Warna Modern */
         * {
             margin: 0;
             padding: 0;
@@ -27,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* Header Dinamis dengan Efek Gradient */
         header {
             background: linear-gradient(135deg, var(--dark), var(--primary));
             color: white;
@@ -37,22 +35,48 @@
         }
 
         header h1 {
-            font-size: 32px;
+            font-size: 30px;
             margin-bottom: 10px;
             letter-spacing: 1px;
         }
 
         header p {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--accent);
         }
 
-        /* Menu Filter Kategori */
+        /* Navigasi / Menu Tambahan */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            background: white;
+            padding: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .nav-link:hover {
+            background: var(--light);
+        }
+
+        /* Filter Kategori */
         .filter-container {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin: 25px 0 10px 0;
+            gap: 8px;
+            margin: 20px 0 10px 0;
             flex-wrap: wrap;
             padding: 0 15px;
         }
@@ -61,10 +85,11 @@
             background-color: white;
             border: 2px solid var(--primary);
             color: var(--primary);
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
+            font-size: 13px;
             transition: all 0.3s ease;
         }
 
@@ -96,7 +121,6 @@
             box-shadow: 0 0 8px rgba(0, 119, 182, 0.2);
         }
 
-        /* Kontainer Kartu Wisata */
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -106,7 +130,6 @@
             padding: 0 20px 40px 20px;
         }
 
-        /* Desain Kartu Dinamis */
         .card {
             background: white;
             border-radius: 12px;
@@ -128,19 +151,18 @@
         }
 
         .card h3 {
-            font-size: 20px;
+            font-size: 19px;
             margin-bottom: 8px;
             color: var(--dark);
         }
 
         .card p {
-            font-size: 14px;
+            font-size: 13px;
             color: #666;
             line-height: 1.5;
             margin-bottom: 20px;
         }
 
-        /* Tombol Interaktif di Kartu */
         .btn-detail {
             background-color: var(--secondary);
             color: white;
@@ -158,7 +180,101 @@
             background-color: var(--primary);
         }
 
-        /* Footer */
+        /* Modal Box Umum */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            animation: fadeIn 0.3s ease;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal-content h2 {
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .modal-content p, .modal-content label {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .modal-content ul {
+            margin-left: 20px;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .modal-content li {
+            margin-bottom: 5px;
+        }
+
+        .modal-content select, .modal-content input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .close-btn {
+            background-color: #e63946;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            float: right;
+            margin-top: 10px;
+        }
+
+        .close-btn:hover {
+            background-color: #d90429;
+        }
+
+        .calc-btn {
+            background-color: #2a9d8f;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .calc-btn:hover {
+            background-color: #21867a;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -173,18 +289,24 @@
 
     <header>
         <h1>Pesona Kepulauan Seribu</h1>
-        <p>Eksplorasi keindahan bahari dan surga tersembunyi di Jakarta</p>
+        <p>Direktori lengkap destinasi wisata bahari dan panduan perjalanan</p>
     </header>
+
+    <div class="nav-menu">
+        <span class="nav-link" onclick="bukaKalkulator()">💰 Hitung Estimasi Biaya</span>
+        <span class="nav-link" onclick="bukaDarurat()">🚨 Kontak Darurat</span>
+    </div>
 
     <div class="filter-container">
         <button class="filter-btn active" onclick="filterKategori('all')">Semua</button>
         <button class="filter-btn" onclick="filterKategori('edukasi')">Edukasi & Konservasi</button>
         <button class="filter-btn" onclick="filterKategori('pantai')">Pantai & Santai</button>
         <button class="filter-btn" onclick="filterKategori('ikonik')">Ikonik & Spot Foto</button>
+        <button class="filter-btn" onclick="filterKategori('sejarah')">Sejarah & Eksotik</button>
     </div>
 
     <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Cari nama pulau atau aktivitas...">
+        <input type="text" id="searchInput" placeholder="Cari pulau atau aktivitas...">
     </div>
 
     <main class="container" id="wisataContainer">
@@ -192,53 +314,189 @@
         <div class="card" data-kategori="edukasi" data-name="pulau pramuka penangkaran penyu snorkeling">
             <div class="card-body">
                 <h3>Pulau Pramuka</h3>
-                <p>Pusat administrasi kabupaten, terkenal dengan wisata edukasi penangkaran penyu dan spot snorkeling air jernih.</p>
-                <button class="btn-detail" onclick="klikDetail('Pulau Pramuka')">Lihat Detail & Rute</button>
+                <p>Pusat kabupaten administrasi, terkenal dengan penangkaran penyu sisik dan spot terumbu karang jernih.</p>
+                <button class="btn-detail" onclick="bukaModal('pramuka')">Lihat Detail & Rute</button>
             </div>
         </div>
 
         <div class="card" data-kategori="ikonik" data-name="pulau tidung jembatan cinta sunset sepedaan">
             <div class="card-body">
                 <h3>Pulau Tidung</h3>
-                <p>Ikonik dengan Jembatan Cinta yang legendaris, sangat seru buat sepedaan keliling pulau sambil menikmati sunset.</p>
-                <button class="btn-detail" onclick="klikDetail('Pulau Tidung')">Lihat Detail & Rute</button>
+                <p>Ikonik dengan Jembatan Cinta yang legendaris, sangat seru buat sepedaan keliling pulau menikmati sunset.</p>
+                <button class="btn-detail" onclick="bukaModal('tidung')">Lihat Detail & Rute</button>
             </div>
         </div>
 
-        <div class="card" data-name="pulau pari pasir perawan bersih santai" data-kategori="pantai">
+        <div class="card" data-kategori="pantai" data-name="pulau pari pasir perawan bersih santai">
             <div class="card-body">
                 <h3>Pulau Pari</h3>
-                <p>Memiliki Pantai Pasir Perawan yang airnya tenang, jernih, dan bersih. Pas banget buat healing santai di pinggir pantai.</p>
-                <button class="btn-detail" onclick="klikDetail('Pulau Pari')">Lihat Detail & Rute</button>
+                <p>Memiliki Pantai Pasir Perawan yang airnya sangat tenang, jernih, dan bersih untuk healing.</p>
+                <button class="btn-detail" onclick="bukaModal('pari')">Lihat Detail & Rute</button>
             </div>
         </div>
 
-        <div class="card" data-name="pulau bidadari sejarah benteng belanda" data-kategori="edukasi">
+        <div class="card" data-kategori="sejarah" data-name="pulau bidadari sejarah benteng belanda">
             <div class="card-body">
                 <h3>Pulau Bidadari</h3>
-                <p>Pulau terdekat dari Jakarta yang menyimpan sejarah masa lalu berupa peninggalan benteng Belanda dan pohon centeng.</p>
-                <button class="btn-detail" onclick="klikDetail('Pulau Bidadari')">Lihat Detail & Rute</button>
+                <p>Pulau resor terdekat dari Jakarta yang menyimpan sejarah peninggalan benteng VOC Belanda.</p>
+                <button class="btn-detail" onclick="bukaModal('bidadari')">Lihat Detail & Rute</button>
+            </div>
+        </div>
+
+        <div class="card" data-kategori="pantai" data-name="pulau untung jawa kampung turis water sport">
+            <div class="card-body">
+                <h3>Pulau Untung Jawa</h3>
+                <p>Sering disebut perkampungan wisata ramah keluarga dengan fasilitas water sport lengkap dan taman mangrove.</p>
+                <button class="btn-detail" onclick="bukaModal('untungjawa')">Lihat Detail & Rute</button>
+            </div>
+        </div>
+
+        <div class="card" data-kategori="ikonik" data-name="pulau macan eco resort sunset romantis mewah">
+            <div class="card-body">
+                <h3>Pulau Macan</h3>
+                <p>Resor berkonsep *eco-friendly* mewah dengan pemandangan laut lepas langsung dari kamar tidur.</p>
+                <button class="btn-detail" onclick="bukaModal('macan')">Lihat Detail & Rute</button>
+            </div>
+        </div>
+
+        <div class="card" data-kategori="sejarah" data-name="pulau kelor benteng martello sejarah kapal">
+            <div class="card-body">
+                <h3>Pulau Kelor</h3>
+                <p>Pulau tak berpenghuni yang terkenal karena reruntuhan Benteng Martello peninggalan abad ke-19.</p>
+                <button class="btn-detail" onclick="bukaModal('kelor')">Lihat Detail & Rute</button>
             </div>
         </div>
 
     </main>
+
+    <div class="modal" id="modalDetail">
+        <div class="modal-content">
+            <h2 id="modalJudul">Judul Pulau</h2>
+            <p><strong>Deskripsi Lengkap:</strong> <span id="modalDeskripsi"></span></p>
+            <p><strong>Rute Perjalanan:</strong></p>
+            <ul id="modalRute"></ul>
+            <button class="close-btn" onclick="tutupModal('modalDetail')">Tutup</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modalKalkulator">
+        <div class="modal-content">
+            <h2>Hitung Estimasi Biaya Trip</h2>
+            <label>Pilih Jenis Transportasi:</label>
+            <select id="transportasi">
+                <option value="50000">Kapal Feri Tradisional (Murah - Rp 50rb)</option>
+                <option value="200000">Speedboat Marina Ancol (Cepat - Rp 200rb)</option>
+            </select>
+            
+            <label>Jumlah Orang:</label>
+            <input type="number" id="jumlahOrang" value="1" min="1">
+
+            <button class="calc-btn" onclick="hitungBiaya()">Hitung Sekarang</button>
+            <p id="hasilHitung" style="margin-top: 15px; font-weight: bold; color: var(--dark);"></p>
+            
+            <button class="close-btn" onclick="tutupModal('modalKalkulator')">Tutup</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modalDarurat">
+        <div class="modal-content">
+            <h2>🚨 Kontak Penting & Darurat</h2>
+            <p>Simpan nomor penting berikut jika mengalami kendala selama berwisata di Kepulauan Seribu:</p>
+            <ul>
+                <li><strong>SAR / Basarnas Jakarta:</strong> 021-65836621</li>
+                <li><strong>Puskesmas Kabupaten Kep. Seribu:</strong> 021-6455588</li>
+                <li><strong>Polairud Polda Metro Jaya:</strong> 021-6910818</li>
+            </ul>
+            <button class="close-btn" onclick="tutupModal('modalDarurat')">Tutup</button>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 - Project Web Pariwisata Kepulauan Seribu</p>
     </footer>
 
     <script>
-        // 1. Fungsi Klik Tombol Detail interaktif
-        function namaTempat(nama) {
-            alert("Kamu memilih " + nama + "! Halaman detail lengkapnya otw dibuat ya boss.");
+        const dataInfo = {
+            pramuka: {
+                judul: "Pulau Pramuka",
+                deskripsi: "Pusat kabupaten administrasi Kepulauan Seribu. Memiliki penangkaran penyu sisik dan fasilitas umum lengkap.",
+                rute: ["Naik kapal feri dari Muara Angke atau speedboat dari Marina Ancol.", "Waktu tempuh 2 - 2,5 jam."]
+            },
+            tidung: {
+                judul: "Pulau Tidung",
+                deskripsi: "Terkenal dengan Jembatan Cinta yang menghubungkan Pulau Tidung Besar dan Kecil.",
+                rute: ["Berangkat dari Pelabuhan Muara Angke.", "Durasi perjalanan laut sekitar 2,5 - 3 jam."]
+            },
+            pari: {
+                judul: "Pulau Pari",
+                deskripsi: "Pulau nelayan dengan Pantai Pasir Perawan berair tenang dan bersih.",
+                rute: ["Naik kapal tradisional dari Muara Angke (1,5 - 2 jam perjalanan)."]
+            },
+            bidadari: {
+                judul: "Pulau Bidadari",
+                deskripsi: "Resor terdekat dari Jakarta yang menyimpan sejarah benteng peninggalan Belanda.",
+                rute: ["Naik speedboat khusus dari Marina Ancol (hanya 20 - 30 menit)."]
+            },
+            untungjawa: {
+                judul: "Pulau Untung Jawa",
+                deskripsi: "Perkampungan wisata ramah keluarga yang menyediakan banyak pilihan water sport seru.",
+                rute: ["Naik kapal dari Dermaga Tanjung Pasir, Tangerang atau Muara Angke."]
+            },
+            macan: {
+                judul: "Pulau Macan",
+                deskripsi: "Eco-resort mewah dengan pemandangan laut lepas langsung dari tempat tidur.",
+                rute: ["Menggunakan speedboat khusus dari Marina Ancol langsung menuju resort pulau."]
+            },
+            kelor: {
+                judul: "Pulau Kelor",
+                deskripsi: "Pulau tak berpenghuni bersejarah yang menyimpan reruntuhan Benteng Martello.",
+                rute: ["Biasanya dikunjungi via *island hopping* sewa perahu dari Pulau Untung Jawa atau Marina Ancol."]
+            }
+        };
+
+        function bukaModal(id) {
+            const info = dataInfo[id];
+            document.getElementById('modalJudul').innerText = info.judul;
+            document.getElementById('modalDeskripsi').innerText = info.deskripsi;
+            
+            const ruteList = document.getElementById('modalRute');
+            ruteList.innerHTML = "";
+            info.rute.forEach(langkah => {
+                let li = document.createElement('li');
+                li.innerText = langkah;
+                ruteList.appendChild(li);
+            });
+
+            document.getElementById('modalDetail').style.display = "flex";
         }
 
-        // 2. Fungsi Filter Kategori Tombol
+        function bukaKalkulator() {
+            document.getElementById('modalKalkulator').style.display = "flex";
+            document.getElementById('hasilHitung').innerText = "";
+        }
+
+        function bukaDarurat() {
+            document.getElementById('modalDarurat').style.display = "flex";
+        }
+
+        function tutupModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        function hitungBiaya() {
+            const hargaTransport = parseInt(document.getElementById('transportasi').value);
+            const jumlah = parseInt(document.getElementById('jumlahOrang').value);
+            
+            // Asumsi biaya rata-rata makan + sewa alat per orang sekitar Rp 100.000
+            const total = (hargaTransport + 100000) * jumlah;
+            
+            document.getElementById('hasilHitung').innerText = `Estimasi Total Biaya: Rp ${total.toLocaleString('id-ID')} (untuk ${jumlah} orang)`;
+        }
+
         function filterKategori(kategori) {
             const cards = document.querySelectorAll('.card');
             const buttons = document.querySelectorAll('.filter-btn');
 
-            // Ubah tombol aktif
             buttons.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
 
@@ -252,13 +510,11 @@
             });
         }
 
-        // 3. Fungsi Pencarian Live Dinamis
         const searchInput = document.getElementById('searchInput');
         const cards = document.querySelectorAll('.card');
 
         searchInput.addEventListener('keyup', function(e) {
             const keyword = e.target.value.toLowerCase();
-
             cards.forEach(card => {
                 const textData = card.getAttribute('data-name');
                 if (textData.indexOf(keyword) > -1) {
@@ -268,10 +524,6 @@
                 }
             });
         });
-
-        function klikDetail(nama) {
-            alert("Fitur info rute ke " + nama + " masih dalam tahap pengembangan ya! Sabar dikit wkwk.");
-        }
     </script>
 </body>
 </html>
